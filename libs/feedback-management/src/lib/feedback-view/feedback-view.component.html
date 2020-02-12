@@ -1,0 +1,44 @@
+<div class="card-fixed">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>CONFIRMATION</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item
+          ><strong>Name</strong>: {{ feedback.name }}</mat-list-item
+        >
+        <mat-list-item
+          ><strong>Email</strong>: {{ feedback.email }}</mat-list-item
+        >
+        <mat-list-item
+          ><strong>Phone</strong>: {{ feedback.phone }}</mat-list-item
+        >
+        <mat-list-item
+          ><strong>Product Name</strong>:
+          {{ feedback.productName }}</mat-list-item
+        >
+        <mat-list-item
+          ><strong>Performance</strong>:
+          {{ feedback.performance }}</mat-list-item
+        >
+        <mat-list-item
+          ><strong>Product Since Used</strong>:
+          {{ feedback.productUsedSince }}</mat-list-item
+        >
+      </mat-list>
+    </mat-card-content>
+    <mat-card-actions>
+      <mat-list role="list">
+        <mat-list-item role="Action">
+          <button (click)="previous()" mat-raised-button>
+            Previous
+          </button>
+          <button (click)="onSubmit()" mat-raised-button color="primary">
+            Submit
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-actions>
+  </mat-card>
+</div>

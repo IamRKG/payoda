@@ -1,0 +1,271 @@
+{
+  "version": 1,
+  "projects": {
+    "feedback": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/feedback",
+      "sourceRoot": "apps/feedback/src",
+      "prefix": "payoda-workspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/feedback",
+            "index": "apps/feedback/src/index.html",
+            "main": "apps/feedback/src/main.ts",
+            "polyfills": "apps/feedback/src/polyfills.ts",
+            "tsConfig": "apps/feedback/tsconfig.app.json",
+            "aot": false,
+            "assets": [
+              "apps/feedback/src/favicon.ico",
+              "apps/feedback/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "apps/feedback/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/feedback/src/environments/environment.ts",
+                  "with": "apps/feedback/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "feedback:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "feedback:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "feedback:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/feedback/tsconfig.app.json",
+              "apps/feedback/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/feedback/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/feedback/jest.config.js",
+            "tsConfig": "apps/feedback/tsconfig.spec.json",
+            "setupFile": "apps/feedback/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "feedback-e2e": {
+      "root": "apps/feedback-e2e",
+      "sourceRoot": "apps/feedback-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/feedback-e2e/cypress.json",
+            "tsConfig": "apps/feedback-e2e/tsconfig.e2e.json",
+            "devServerTarget": "feedback:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "feedback:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/feedback-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/feedback-e2e/**"]
+          }
+        }
+      }
+    },
+    "feedback-management": {
+      "projectType": "library",
+      "root": "libs/feedback-management",
+      "sourceRoot": "libs/feedback-management/src",
+      "prefix": "payoda-workspace",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feedback-management/tsconfig.lib.json",
+              "libs/feedback-management/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feedback-management/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feedback-management/jest.config.js",
+            "tsConfig": "libs/feedback-management/tsconfig.spec.json",
+            "setupFile": "libs/feedback-management/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "feedback-list": {
+      "projectType": "library",
+      "root": "libs/feedback-list",
+      "sourceRoot": "libs/feedback-list/src",
+      "prefix": "payoda-workspace",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/feedback-list/tsconfig.lib.json",
+              "libs/feedback-list/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/feedback-list/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/feedback-list/jest.config.js",
+            "tsConfig": "libs/feedback-list/tsconfig.spec.json",
+            "setupFile": "libs/feedback-list/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "data": {
+      "root": "libs/data",
+      "sourceRoot": "libs/data/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/data/tsconfig.lib.json",
+              "libs/data/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/data/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/data/jest.config.js",
+            "tsConfig": "libs/data/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "widget": {
+      "root": "libs/widget",
+      "sourceRoot": "libs/widget/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/widget/tsconfig.lib.json",
+              "libs/widget/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/widget/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/widget/jest.config.js",
+            "tsConfig": "libs/widget/tsconfig.spec.json"
+          }
+        }
+      }
+    },
+    "widgets": {
+      "projectType": "library",
+      "root": "libs/widgets",
+      "sourceRoot": "libs/widgets/src",
+      "prefix": "payoda-workspace",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/widgets/tsconfig.lib.json",
+              "libs/widgets/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/widgets/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/widgets/jest.config.js",
+            "tsConfig": "libs/widgets/tsconfig.spec.json",
+            "setupFile": "libs/widgets/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {}
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "feedback"
+}

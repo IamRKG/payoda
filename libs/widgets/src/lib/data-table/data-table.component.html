@@ -1,0 +1,54 @@
+<div *ngIf="dataSource?.length === 0">
+  No Feedback
+</div>
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="search" />
+</mat-form-field>
+<div *ngIf="dataSource?.length !== 0">
+  <table
+    mat-table
+    [dataSource]="dataSource"
+    matSort
+    (matSortChange)="sortData($event, dataSource)"
+  >
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="id">ID</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="name">Name</th>
+      <td mat-cell *matCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="email">Email</th>
+      <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+    </ng-container>
+    <ng-container matColumnDef="phoneNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="phone">
+        Phone Number
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
+    </ng-container>
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="productName">
+        Product Name
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.productName }}</td>
+    </ng-container>
+    <ng-container matColumnDef="performance">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="performance">
+        Performance
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.performance }}</td>
+    </ng-container>
+    <ng-container matColumnDef="productUsedSince">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header="productUsedSince">
+        Product Used Since
+      </th>
+      <td mat-cell *matCellDef="let element">{{ element.productUsedSince }}</td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

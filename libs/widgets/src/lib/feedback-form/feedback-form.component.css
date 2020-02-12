@@ -1,0 +1,17 @@
+.radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.radio-button {
+  margin: 5px;
+}
+
+.col-3 {
+  width: 33%;
+}
+
+.custom-label {
+  color: #7d7c7c;
+}

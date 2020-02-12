@@ -1,0 +1,31 @@
+{
+  "npmScope": "payoda-workspace",
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": {
+      "dependencies": "*",
+      "devDependencies": "*"
+    },
+    "tsconfig.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "feedback": {
+      "tags": []
+    },
+    "feedback-e2e": {
+      "tags": [],
+      "implicitDependencies": ["feedback"]
+    },
+    "feedback-management": {
+      "tags": []
+    },
+    "feedback-list": {
+      "tags": []
+    },
+    "widgets": {
+      "tags": []
+    }
+  }
+}

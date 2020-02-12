@@ -1,0 +1,87 @@
+<form [formGroup]="feedbackForm" novalidate>
+  <mat-list class="row">
+    <mat-list-item>
+      <mat-form-field>
+        <mat-label>NAME</mat-label>
+        <input matInput type="text" formControlName="name" />
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-form-field>
+        <mat-label>EMAIL</mat-label>
+        <input matInput type="text" formControlName="email" required />
+        <mat-error
+          *ngIf="
+            feedbackForm.controls.email.errors &&
+            (feedbackForm.controls.email.dirty ||
+              feedbackForm.controls.email.touched)
+          "
+        >
+          <mat-error *ngIf="feedbackForm.controls.email.errors.required">
+            Email is <strong>required</strong>
+          </mat-error>
+
+          <mat-error *ngIf="feedbackForm.controls.email.errors.pattern">
+            The email address must contain at least the @ character
+          </mat-error>
+          <mat-error *ngIf="feedbackForm.controls.email.errors.emailDomain">
+            Email must be on the payoda.com domain
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-form-field>
+        <mat-label>PHONE</mat-label>
+        <input matInput type="text" formControlName="phone" required />
+
+        <mat-error
+          *ngIf="
+            feedbackForm.controls.phone.errors &&
+            (feedbackForm.controls.phone.dirty ||
+              feedbackForm.controls.phone.touched)
+          "
+        >
+          <mat-error *ngIf="feedbackForm.controls.phone.errors.required">
+            Email is <strong>required</strong>
+          </mat-error>
+
+          <mat-error *ngIf="feedbackForm.controls.phone.errors.pattern">
+            The phone number must contain number
+          </mat-error>
+        </mat-error>
+      </mat-form-field>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-form-field>
+        <mat-label>PRODUCT NAME</mat-label>
+        <input matInput type="text" formControlName="productName" />
+      </mat-form-field>
+    </mat-list-item>
+
+    <mat-list-item>
+      <div class="col-3">
+        <mat-label class="custom-label">PERFORMANCE </mat-label>
+      </div>
+      <mat-radio-group formControlName="performance">
+        <mat-radio-button
+          class="radio-button"
+          *ngFor="let p of performances"
+          [value]="p"
+        >
+          {{ p }}
+        </mat-radio-button>
+      </mat-radio-group>
+    </mat-list-item>
+    <mat-list-item>
+      <mat-form-field>
+        <mat-label>PRODUCT SINCE USED</mat-label>
+        <mat-select formControlName="productUsedSince">
+          <mat-option *ngFor="let pus of productUsedSince()" [value]="pus">
+            {{ pus }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-list-item>
+  </mat-list>
+</form>

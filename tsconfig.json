@@ -1,0 +1,29 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "typeRoots": ["node_modules/@types"],
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@payoda-workspace/feedback-management": [
+        "libs/feedback-management/src/index.ts"
+      ],
+      "@payoda-workspace/feedback-list": ["libs/feedback-list/src/index.ts"],
+      "@payoda-workspace/data": ["libs/data/src/index.ts"],
+      "@payoda-workspace/widget": ["libs/widget/src/index.ts"],
+      "@payoda-workspace/widgets": ["libs/widgets/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
