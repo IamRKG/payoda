@@ -24,4 +24,4 @@ Unit Test and E2E Test
 
 UX Improvements
 
-NRWL Website for more info : https://nx.dev/angular/getting-started/what-is-nx
+Nrwl Website for more info : https://nx.dev/angular/getting-started/what-is-nx
