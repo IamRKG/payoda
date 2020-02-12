@@ -1,4 +1,4 @@
-# FeedBack App generated via nrwl.
+# Feedback app generated via nrwl.
 
 ## Require:
 
