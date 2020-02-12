@@ -1,17 +1,27 @@
-#FeedBack App generated via nrwl.
-Require:
+# FeedBack App generated via nrwl.
+
+## Require:
+
 Nrwl - Dependencies added in Package.json
+
 Db.json - Dependencies added in Package.json
+
 Please let me know If above dependencies are not working.
 
-Highlights,
+## Highlights,
+
 Used reusable components. Example widget.
+
 Used NGRX with selector.
+
 Material Design
+
 Reactive form
 
-Pending:
+## Pending:
+
 Unit Test and E2E Test
+
 UX Improvements
 
 NRWL Website for more info : https://nx.dev/angular/getting-started/what-is-nx
