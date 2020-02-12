@@ -1,6 +1,6 @@
 # Feedback app generated via nrwl.
 
-## Require:
+## Require
 
 Nrwl - Dependencies added in Package.json
 
@@ -8,7 +8,7 @@ Db.json - Dependencies added in Package.json
 
 Please let me know If above dependencies are not working.
 
-## Highlights,
+## Highlights
 
 Used reusable components. Example widget.
 
@@ -18,7 +18,7 @@ Material Design
 
 Reactive form
 
-## Pending:
+## Pending
 
 Unit Test and E2E Test
 
